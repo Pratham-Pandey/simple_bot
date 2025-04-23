@@ -80,6 +80,30 @@ To Drive the robot, run the following commands in scequence:
 ```
 
 > [!TIP]
-> The robot may move slowly or respond with a delay due to the added computational load from textured maps..
+> Don't forget to set "odom" as fixed frame in rviz.
+> The robot may move slowly or respond with a delay due to the added computational load from textured maps.
+
+
+## Question 3: Package -> bot_control
+
+To spawn the robot in a world with obstacles:
+```bash
+  ros2 launch bot_world spawn.launch
+```
+
+To Run Lidar Data Filtering script and launch rviz:
+```bash
+ros2 launch bot_control rviz.launch
+```
+
+To Drive the robot, run the following commands in sequence:
+
+```bash
+  ros2 launch bot_description control.launch
+  ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args -r /cmd_vel:=/diff_drive_controller/cmd_vel -p stamped:=true
+```
+
+> [!TIP]
+> Don't forget to set "odom" as fixed frame in rviz.
 
 
