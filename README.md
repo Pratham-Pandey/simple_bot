@@ -29,6 +29,9 @@ Source Project:
 
 Now follow the commands below to run each package.
 
+> [!IMPORTANT]
+> Run each of the following commands in a separate terminal. Remember to source the terminal using the commands provided above before executing.
+
 
 ## Question 1: Package -> bot_description
 
