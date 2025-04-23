@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro"  name="bot">
+
+    <!-- Robot Structure-->
+    <xacro:include filename="structure.xacro"/>
+
+    <!-- Ros2 Control -->
+    <xacro:include filename="ros2_control.xacro"/>
+
+    <!-- Lidar-->
+    <xacro:include filename="lidar.xacro"/>
+
+    <!-- Camera -->
+    <xacro:include filename="camera.xacro"/>
+
+</robot>

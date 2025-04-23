@@ -1,0 +1,210 @@
+<sdf version='1.9'>
+  <world name='empty'>
+    <physics name='1ms' type='ignored'>
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1</real_time_factor>
+      <real_time_update_rate>1000</real_time_update_rate>
+    </physics>
+    <plugin name='gz::sim::systems::Physics' filename='ignition-gazebo-physics-system'/>
+    <plugin name='gz::sim::systems::UserCommands' filename='ignition-gazebo-user-commands-system'/>
+    <plugin name='gz::sim::systems::SceneBroadcaster' filename='ignition-gazebo-scene-broadcaster-system'/>
+    <plugin name='gz::sim::systems::Contact' filename='ignition-gazebo-contact-system'/>
+    <plugin name='gz::sim::systems::Sensors' filename='ignition-gazebo-sensors-system'/>
+    <gravity>0 0 -9.8</gravity>
+    <magnetic_field>6e-06 2.3e-05 -4.2e-05</magnetic_field>
+    <atmosphere type='adiabatic'/>
+    <scene>
+      <ambient>0.4 0.4 0.4 1</ambient>
+      <background>0.7 0.7 0.7 1</background>
+      <shadows>true</shadows>
+    </scene>
+    <model name='ground_plane'>
+      <static>true</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.8 0.8 0.8 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>0 0 0 0 -0 0</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <include>
+      <uri>file:///home/pratham/.ignition/fuel/fuel.gazebosim.org/openrobotics/models/jersey barrier/6</uri>
+      <name>jersey_barrier</name>
+      <pose>-2.07031 9.5398 0 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/pratham/.ignition/fuel/fuel.gazebosim.org/openrobotics/models/jersey barrier/6</uri>
+      <name>jersey_barrier_0</name>
+      <pose>2.00611 9.48396 0 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/pratham/.ignition/fuel/fuel.gazebosim.org/openrobotics/models/jersey barrier/6</uri>
+      <name>jersey_barrier_1</name>
+      <pose>6.07841 9.4712 0 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/pratham/.ignition/fuel/fuel.gazebosim.org/openrobotics/models/jersey barrier/6</uri>
+      <name>jersey_barrier_2</name>
+      <pose>-6.10081 9.56806 0 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/pratham/.ignition/fuel/fuel.gazebosim.org/openrobotics/models/jersey barrier/6</uri>
+      <name>jersey_barrier_3</name>
+      <pose>-9.37802 1.74345 0 0 -0 1.56882</pose>
+    </include>
+    <include>
+      <uri>file:///home/pratham/.ignition/fuel/fuel.gazebosim.org/openrobotics/models/jersey barrier/6</uri>
+      <name>jersey_barrier_4</name>
+      <pose>-9.38563 5.77322 0 0 -0 1.56391</pose>
+    </include>
+    <include>
+      <uri>file:///home/pratham/.ignition/fuel/fuel.gazebosim.org/openrobotics/models/jersey barrier/6</uri>
+      <name>jersey_barrier_5</name>
+      <pose>-9.41252 -2.25099 0 0 -0 1.56736</pose>
+    </include>
+    <include>
+      <uri>file:///home/pratham/.ignition/fuel/fuel.gazebosim.org/openrobotics/models/jersey barrier/6</uri>
+      <name>jersey_barrier_6</name>
+      <pose>-9.43748 -6.25123 0 0 -0 1.5748</pose>
+    </include>
+    <include>
+      <uri>file:///home/pratham/.ignition/fuel/fuel.gazebosim.org/openrobotics/models/jersey barrier/6</uri>
+      <name>jersey_barrier_7</name>
+      <pose>-2.09149 -9.48117 0 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/pratham/.ignition/fuel/fuel.gazebosim.org/openrobotics/models/jersey barrier/6</uri>
+      <name>jersey_barrier_8</name>
+      <pose>-6.15181 -9.47228 0 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/pratham/.ignition/fuel/fuel.gazebosim.org/openrobotics/models/jersey barrier/6</uri>
+      <name>jersey_barrier_9</name>
+      <pose>1.94716 -9.50667 0 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/pratham/.ignition/fuel/fuel.gazebosim.org/openrobotics/models/jersey barrier/6</uri>
+      <name>jersey_barrier_10</name>
+      <pose>5.95723 -9.49077 0 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/pratham/.ignition/fuel/fuel.gazebosim.org/openrobotics/models/jersey barrier/6</uri>
+      <name>jersey_barrier_11</name>
+      <pose>9.50601 -6.06355 0 0 -0 1.56947</pose>
+    </include>
+    <include>
+      <uri>file:///home/pratham/.ignition/fuel/fuel.gazebosim.org/openrobotics/models/jersey barrier/6</uri>
+      <name>jersey_barrier_12</name>
+      <pose>9.51901 -2.02346 0 0 -0 1.56005</pose>
+    </include>
+    <include>
+      <uri>file:///home/pratham/.ignition/fuel/fuel.gazebosim.org/openrobotics/models/jersey barrier/6</uri>
+      <name>jersey_barrier_13</name>
+      <pose>9.53384 2.02171 0 0 -0 1.56543</pose>
+    </include>
+    <include>
+      <uri>file:///home/pratham/.ignition/fuel/fuel.gazebosim.org/openrobotics/models/jersey barrier/6</uri>
+      <name>jersey_barrier_14</name>
+      <pose>9.56377 6.04772 0 0 -0 1.5655</pose>
+    </include>
+    <include>
+      <uri>file:///home/pratham/.ignition/fuel/fuel.gazebosim.org/openrobotics/models/construction barrel/4</uri>
+      <name>Construction Barrel</name>
+      <pose>-8.64795 9.02683 -1e-06 1e-06 2e-06 0.000227</pose>
+    </include>
+    <include>
+      <uri>file:///home/pratham/.ignition/fuel/fuel.gazebosim.org/openrobotics/models/construction barrel/4</uri>
+      <name>Construction Barrel_0</name>
+      <pose>-9.37981 8.30984 -0 -0 0 -1.8e-05</pose>
+    </include>
+    <include>
+      <uri>file:///home/pratham/.ignition/fuel/fuel.gazebosim.org/openrobotics/models/construction barrel/4</uri>
+      <name>Construction Barrel_1</name>
+      <pose>-9.27889 -8.79033 -0 0 0 -0.005337</pose>
+    </include>
+    <include>
+      <uri>file:///home/pratham/.ignition/fuel/fuel.gazebosim.org/openrobotics/models/construction barrel/4</uri>
+      <name>Construction Barrel_2</name>
+      <pose>-8.69505 -9.63089 -0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/pratham/.ignition/fuel/fuel.gazebosim.org/openrobotics/models/construction barrel/4</uri>
+      <name>Construction Barrel_3</name>
+      <pose>8.49889 -9.21812 0 0 -0 -0.009118</pose>
+    </include>
+    <include>
+      <uri>file:///home/pratham/.ignition/fuel/fuel.gazebosim.org/openrobotics/models/construction barrel/4</uri>
+      <name>Construction Barrel_4</name>
+      <pose>9.28166 -8.57639 0.011438 -0.026836 0.001575 0.00081</pose>
+    </include>
+    <include>
+      <uri>file:///home/pratham/.ignition/fuel/fuel.gazebosim.org/openrobotics/models/construction barrel/4</uri>
+      <name>Construction Barrel_5</name>
+      <pose>9.35933 8.6209 -0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/pratham/.ignition/fuel/fuel.gazebosim.org/openrobotics/models/construction barrel/4</uri>
+      <name>Construction Barrel_6</name>
+      <pose>8.60911 9.33142 -0 -0 -0 0.023453</pose>
+    </include>
+    <light name='sun' type='directional'>
+      <pose>0 0 10 0 -0 0</pose>
+      <cast_shadows>true</cast_shadows>
+      <intensity>1</intensity>
+      <direction>-0.5 0.1 -0.9</direction>
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <specular>0.2 0.2 0.2 1</specular>
+      <attenuation>
+        <range>1000</range>
+        <linear>0.01</linear>
+        <constant>0.90000000000000002</constant>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <spot>
+        <inner_angle>0</inner_angle>
+        <outer_angle>0</outer_angle>
+        <falloff>0</falloff>
+      </spot>
+    </light>
+  </world>
+</sdf>

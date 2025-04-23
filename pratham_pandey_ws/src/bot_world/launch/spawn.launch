@@ -1,0 +1,83 @@
+import os
+from ament_index_python.packages import get_package_share_directory
+from launch import LaunchDescription
+from launch_ros.actions import Node
+import xacro
+from launch.actions import IncludeLaunchDescription
+from launch.launch_description_sources import PythonLaunchDescriptionSource
+
+def generate_launch_description():
+    
+    bot_package_name = "bot_description"
+    current_package_name = "bot_world"
+
+    # Process the URDF file
+    bot_pkg_path = os.path.join(get_package_share_directory(bot_package_name))
+    xacro_file = os.path.join(bot_pkg_path,'description','bot.urdf.xacro')
+    robot_description_config = xacro.process_file(xacro_file)
+    
+    # Create a robot_state_publisher node
+    params = {'robot_description': robot_description_config.toxml(), 'use_sim_time': True}
+    node_robot_state_publisher = Node(
+        package='robot_state_publisher',
+        executable='robot_state_publisher',
+        output='screen',
+        parameters=[params]
+    )
+    
+    # Launch Gazebo 
+    current_pkg_path = os.path.join(get_package_share_directory(current_package_name))
+    world = os.path.join(current_pkg_path, "worlds", "gazebo_world.sdf") 
+    
+    gazebo = IncludeLaunchDescription(
+                PythonLaunchDescriptionSource([os.path.join(
+                    get_package_share_directory('ros_gz_sim'), 'launch', 'gz_sim.launch.py')]),
+                    launch_arguments={'gz_args': ['-r -v1 ', world], 'on_exit_shutdown': 'true'}.items()
+             )
+
+    # Spawn Robot
+    spawn_bot = Node(package='ros_gz_sim', executable='create',      
+                        arguments=['-topic', 'robot_description',
+                                   '-name', 'bot',                  
+                                   '-z', '0.03'],               
+                        output='screen')
+
+
+
+    # For bridging topics between Gazebo and Ros
+    bridge_params= os.path.join(get_package_share_directory(bot_package_name), 'config', 'gz_bridge.yaml')
+
+    ros_gz_bridge = Node(
+        package="ros_gz_bridge",
+        executable="parameter_bridge",
+        arguments=[
+            '--ros-args',
+            '-p',
+            f'config_file:={bridge_params}',
+        ]
+    )
+
+    # For image(raw data, not info) we need a seprate bridge
+    ros_gz_image_bridge = Node(
+        package="ros_gz_image",
+        executable="image_bridge",
+        arguments=["/camera/image_raw"]
+    )        
+    
+    # Joints State Broadcaster
+    joint_broadcaster = Node(
+        package="controller_manager",
+        executable="spawner",
+        arguments=["joint_state"],
+    )
+    
+  
+    # Launch!
+    return LaunchDescription([
+        node_robot_state_publisher,
+        gazebo,
+        spawn_bot,        
+        ros_gz_bridge,
+        ros_gz_image_bridge,
+        joint_broadcaster,
+    ])

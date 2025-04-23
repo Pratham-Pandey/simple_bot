@@ -1,0 +1,18 @@
+from launch import LaunchDescription
+from launch_ros.actions import Node
+
+def generate_launch_description():
+    
+#    package_name = "bot_description"
+            
+    # Controllers    
+    diff_drive_controller = Node(
+        package="controller_manager",
+        executable="spawner",
+        arguments=["diff_drive_controller"],
+    )
+    
+    # Launch!
+    return LaunchDescription([
+        diff_drive_controller,
+    ])
