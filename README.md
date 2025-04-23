@@ -1,4 +1,4 @@
-# simple_bot
+# Simple Bot
 Simple 2 wheel Differential Drive robot.
 
 
@@ -6,23 +6,23 @@ Simple 2 wheel Differential Drive robot.
 Follow the given instructions in sequence:
 
 
-Clone the Project
+Clone the Project:
 ```bash
 git clone https://github.com/Pratham-Pandey/simple_bot.git
 ```
 
-Change Directory
+Change Directory:
 ```
 cd simple_bot/
 cd pratham_pandey_ws/
 ```
 
-Build Project
+Build Project:
 ```bash
   colcon build --symlink-install
 ```
 
-Source Project
+Source Project:
 ```bash
   source install/setup.bash 
 ```
@@ -32,7 +32,7 @@ Now follow the commands below to run each package.
 
 ## Question 1: Package -> bot_description
 
-Visualize robot in Rviz.
+Visualize robot in Rviz:
 ```bash
   ros2 launch bot_description rviz.launch
 ```
@@ -40,21 +40,21 @@ Visualize robot in Rviz.
 > [!NOTE]
 > The robot's wheels won't appear yet, as joint states aren't published. Launch the Gazebo simulation (next step) to start the joint_state_publisher.
 
-Visualize robot in Gazebo.
+Visualize robot in Gazebo:
 ```bash
   ros2 launch bot_description spawn.launch
 ```
 > [!NOTE]
 > Check RViz now—wheels should be visible, and the camera view should be active.
 
-Launch Differential Drive Controller
+Launch Differential Drive Controller:
 ```bash
   ros2 launch bot_description control.launch
 ```
 
 Now set fixed frame in rviz to "odom".
 
-Launch Teleop Twist Keyboard
+Launch Teleop Twist Keyboard:
 ```bash
   ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args -r /cmd_vel:=/diff_drive_controller/cmd_vel -p stamped:=true
 ```
@@ -62,7 +62,7 @@ Launch Teleop Twist Keyboard
 Now we can drive the robot using the instructions printed on the terminal. 
 
 > [!IMPORTANT]
-> Make sure the teleop_twist_keyboard terminal is activae window when driving the robot otherwise the robot won't move..
+> Make sure the teleop_twist_keyboard terminal is activae window when driving the robot otherwise the robot won't move.
 
 
 
@@ -72,7 +72,8 @@ To spawn the robot in a world with obstacles:
 ```bash
   ros2 launch bot_world spawn.launch
 ```
-To Drive the robot, run the following commands in scequence:
+
+To Drive the robot, run the following commands in sequence:
 
 ```bash
   ros2 launch bot_description control.launch
